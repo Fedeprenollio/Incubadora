@@ -2,12 +2,13 @@ const { userService } = require('../services');
 
 const createUser = async (req, res) => {
   const newDataUser = {
-    username: 'juan',
-    password: 123,
-    email: 'juan@juan',
+    firstName: 'juan',
+    lastName: 'perez',
+    password: '123345678',
+    email: req.query.email,
 
   };
-
+  console.log(req.query.email);
   try {
     const newUser = await userService.createUser(newDataUser);
     res.json(newUser);
